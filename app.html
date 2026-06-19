@@ -3,110 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI & Me - Custom Number Guessing Game</title>
+    <title>The Runaway Budget Game</title>
     <style>
         body {
-            background-color: #eef2f5;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            text-align: center;
-            padding: 50px 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgb(132, 93, 118); /* Your resume berry-mauve theme */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
         }
-        .game-card {
-            max-width: 450px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
+        .game-container {
+            background-color: #ffffff;
             border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            padding: 30px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            border-top: 8px solid rgb(214, 122, 177); /* Your vibrant pink accent */
         }
-        h1 { color: #0076a3; }
+        h1 {
+            color: rgb(132, 93, 118);
+            margin-top: 0;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.5;
+            color: #555;
+        }
+        .input-group {
+            margin: 25px 0;
+        }
         input[type="number"] {
-            width: 80px;
-            padding: 10px;
-            font-size: 18px;
+            padding: 12px;
+            width: 120px;
+            font-size: 1.2em;
             border: 2px solid #ccc;
             border-radius: 6px;
-            margin-right: 10px;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        input[type="number"]:focus {
+            border-color: rgb(132, 93, 118);
         }
         button {
-            padding: 11px 20px;
-            font-size: 16px;
-            background-color: #0076a3;
+            padding: 12px 24px;
+            font-size: 1em;
+            background-color: rgb(132, 93, 118);
             color: white;
             border: none;
             border-radius: 6px;
             cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
-        button:hover { background-color: #005c82; }
-        .feedback { margin: 20px 0; font-weight: bold; font-size: 18px; }
-        .attempts { color: #666; font-size: 14px; }
-        .back-link { margin-top: 25px; display: inline-block; color: #0076a3; text-decoration: none;}
+        button:hover {
+            background-color: rgb(105, 72, 93);
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            min-height: 1.5em;
+        }
+        .attempts {
+            color: #888;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        .nav-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: rgb(132, 93, 118);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .nav-link:hover {
+            color: rgb(214, 122, 177);
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
-    <div class="game-card">
-        <h1>The Quantum Number Guesser</h1>
-        <p>I have selected a secret number between <b>1 and 100</b>. Can you crack it?</p>
-        
-        <div style="margin: 20px 0;">
-            <input type="number" id="guessInput" min="1" max="100" placeholder="42">
-            <button onclick="checkGuess()">Submit Guess</button>
+    <div class="game-container">
+        <h1>📉 Runaway Budget!</h1>
+        <p>Your monthly spending layout is out of balance! There is a hidden, automated subscription leak costing between <strong>$1 and $100</strong>.</p>
+        <p>Can you guess the exact dollar amount of the leak to cancel it and save your budget?</p>
+
+        <div class="input-group">
+            <input type="number" id="guessInput" min="1" max="100" placeholder="$ Amount">
+            <button onclick="checkBudgetGuess()">Audit Account</button>
         </div>
 
-        <div class="feedback" id="feedbackMsg">Make your first move!</div>
-        <div class="attempts" id="attemptCount">Attempts: 0</div>
+        <div class="message" id="feedbackMessage"></div>
+        <div class="attempts" id="attemptCount">Audits performed: 0</div>
 
-        <button id="resetBtn" style="display:none; margin-top:15px; background-color:#28a745;" onclick="resetGame()">Play Again</button>
-        
-        <br>
-        <a class="back-link" href="scratch.html">&larr; Back to Scratch Page</a>
+        <a href="Resume.html" class="nav-link">← Return to Portfolio</a>
     </div>
 
     <script>
-        let targetNumber = Math.floor(Math.random() * 100) + 1;
-        let attempts = 0;
+        const secretLeak = Math.floor(Math.random() * 100) + 1;
+        let totalAudits = 0;
 
-        function checkGuess() {
-            const userInput = document.getElementById('guessInput');
-            const feedback = document.getElementById('feedbackMsg');
-            const attemptLabel = document.getElementById('attemptCount');
-            const resetBtn = document.getElementById('resetBtn');
-            const currentGuess = parseInt(userInput.value);
+        function checkBudgetGuess() {
+            const inputField = document.getElementById('guessInput');
+            const feedback = document.getElementById('feedbackMessage');
+            const attemptDisplay = document.getElementById('attemptCount');
+            const userGuess = parseInt(inputField.value);
 
-            if (isNaN(currentGuess) || currentGuess < 1 || currentGuess > 100) {
-                feedback.textContent = "⚠️ Please enter a valid number between 1 and 100.";
-                feedback.style.color = "#d9534f";
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                feedback.style.color = '#d32f2f';
+                feedback.innerText = "Please input a valid statement between $1 and $100.";
                 return;
             }
 
-            attempts++;
-            attemptLabel.textContent = `Attempts: ${attempts}`;
+            totalAudits++;
+            attemptDisplay.innerText = `Audits performed: ${totalAudits}`;
 
-            if (currentGuess === targetNumber) {
-                feedback.textContent = `🎉 Brilliant! You found it in ${attempts} tries!`;
-                feedback.style.color = "#28a745";
-                resetBtn.style.display = "inline-block";
-            } else if (currentGuess > targetNumber) {
-                feedback.textContent = "📉 Too high! Try a lower number.";
-                feedback.style.color = "#0076a3";
+            if (userGuess === secretLeak) {
+                feedback.style.color = 'rgb(132, 93, 118)';
+                feedback.innerHTML = `🎉 Success! You caught the $${secretLeak} leak and balanced the budget in ${totalAudits} audits!`;
+                inputField.disabled = true;
+            } else if (userGuess < secretLeak) {
+                feedback.style.color = 'rgb(214, 122, 177)';
+                feedback.innerText = "Too low! The leak is larger than that. Try a higher asset amount.";
             } else {
-                feedback.textContent = "📈 Too low! Try a higher number.";
-                feedback.style.color = "#0076a3";
+                feedback.style.color = 'rgb(214, 122, 177)';
+                feedback.innerText = "Too high! Your budget isn't bleeding that much. Try a lower dollar amount.";
             }
-            
-            userInput.value = '';
-            userInput.focus();
-        }
 
-        function resetGame() {
-            targetNumber = Math.floor(Math.random() * 100) + 1;
-            attempts = 0;
-            document.getElementById('feedbackMsg').textContent = "Game restarted! Guess a new number.";
-            document.getElementById('feedbackMsg').style.color = "#333";
-            document.getElementById('attemptCount').textContent = "Attempts: 0";
-            document.getElementById('resetBtn').style.display = "none";
+            inputField.value = '';
+            inputField.focus();
         }
     </script>
+
 </body>
 </html>
