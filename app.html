@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Me - Custom Number Guessing Game</title>
+    <style>
+        body {
+            background-color: #eef2f5;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .game-card {
+            max-width: 450px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        h1 { color: #0076a3; }
+        input[type="number"] {
+            width: 80px;
+            padding: 10px;
+            font-size: 18px;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 11px 20px;
+            font-size: 16px;
+            background-color: #0076a3;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover { background-color: #005c82; }
+        .feedback { margin: 20px 0; font-weight: bold; font-size: 18px; }
+        .attempts { color: #666; font-size: 14px; }
+        .back-link { margin-top: 25px; display: inline-block; color: #0076a3; text-decoration: none;}
+    </style>
+</head>
+<body>
+
+    <div class="game-card">
+        <h1>The Quantum Number Guesser</h1>
+        <p>I have selected a secret number between <b>1 and 100</b>. Can you crack it?</p>
+        
+        <div style="margin: 20px 0;">
+            <input type="number" id="guessInput" min="1" max="100" placeholder="42">
+            <button onclick="checkGuess()">Submit Guess</button>
+        </div>
+
+        <div class="feedback" id="feedbackMsg">Make your first move!</div>
+        <div class="attempts" id="attemptCount">Attempts: 0</div>
+
+        <button id="resetBtn" style="display:none; margin-top:15px; background-color:#28a745;" onclick="resetGame()">Play Again</button>
+        
+        <br>
+        <a class="back-link" href="scratch.html">&larr; Back to Scratch Page</a>
+    </div>
+
+    <script>
+        let targetNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+
+        function checkGuess() {
+            const userInput = document.getElementById('guessInput');
+            const feedback = document.getElementById('feedbackMsg');
+            const attemptLabel = document.getElementById('attemptCount');
+            const resetBtn = document.getElementById('resetBtn');
+            const currentGuess = parseInt(userInput.value);
+
+            if (isNaN(currentGuess) || currentGuess < 1 || currentGuess > 100) {
+                feedback.textContent = "⚠️ Please enter a valid number between 1 and 100.";
+                feedback.style.color = "#d9534f";
+                return;
+            }
+
+            attempts++;
+            attemptLabel.textContent = `Attempts: ${attempts}`;
+
+            if (currentGuess === targetNumber) {
+                feedback.textContent = `🎉 Brilliant! You found it in ${attempts} tries!`;
+                feedback.style.color = "#28a745";
+                resetBtn.style.display = "inline-block";
+            } else if (currentGuess > targetNumber) {
+                feedback.textContent = "📉 Too high! Try a lower number.";
+                feedback.style.color = "#0076a3";
+            } else {
+                feedback.textContent = "📈 Too low! Try a higher number.";
+                feedback.style.color = "#0076a3";
+            }
+            
+            userInput.value = '';
+            userInput.focus();
+        }
+
+        function resetGame() {
+            targetNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            document.getElementById('feedbackMsg').textContent = "Game restarted! Guess a new number.";
+            document.getElementById('feedbackMsg').style.color = "#333";
+            document.getElementById('attemptCount').textContent = "Attempts: 0";
+            document.getElementById('resetBtn').style.display = "none";
+        }
+    </script>
+</body>
+</html>

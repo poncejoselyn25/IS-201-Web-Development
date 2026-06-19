@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Passion Project & Resume</title>
+    <link rel="stylesheet" href="scratch-style.css">
+</head>
+<body>
+
+    <div class="nav-container">
+        <nav>
+            <a href="index.html" class="nav-link">← Back to Professional Site</a>
+            <a href="#resume-section" class="nav-link">Jump to Résumé</a>
+            </nav>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Exploring the Art of Specialty Coffee</h1>
+            <p>Welcome to my scratch page! This space is dedicated to my fascination with the science and culture behind roasting and brewing specialty coffee.</p>
+        </header>
+
+        <section>
+            <h2>The Perfect Brew Process</h2>
+            <p>Achieving the perfect cup requires precision. Below is a breakdown of my preferred morning ritual, alongside the specific flavor profiles I hunt for.</p>
+            
+            <ol>
+                <li><strong>Weigh and Grind the Beans</strong>
+                    <ul>
+                        <li>Use a 1:16 coffee-to-water ratio.</li>
+                        <li>Grind size: Medium-coarse (resembling sea salt).</li>
+                    </ul>
+                </li>
+                <li><strong>Heat the Water</strong>
+                    <ul>
+                        <li>Target temperature: 202°F to 205°F.</li>
+                        <li>Use filtered water for optimal extraction.</li>
+                    </ul>
+                </li>
+                <li><strong>The Pour Over (V60 Method)</strong>
+                    <ul>
+                        <li>Bloom the grounds for 45 seconds.</li>
+                        <li>Pour in concentric circles avoiding the paper filter.</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <section class="media-section">
+            <h2>Visualizing Coffee Culture</h2>
+            <p>From bean to cup, every step is a visual craft.</p>
+            <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=800&q=80" alt="A freshly brewed cup of espresso next to coffee beans" class="custom-image">
+        </section>
+
+        <section class="media-section">
+            <h2>Learn the Science of Pour Over</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/AI4S564O30E" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section class="media-section">
+            <h2>Global Coffee Production Data</h2>
+            <p>Interact with the live visualization below to see trends in global coffee production and exports over time.</p>
+            <div class="tableau-container">
+                <div class='tableauPlaceholder' id='viz1710000000000' style='position: relative'>
+                    <noscript>
+                        <a href='#'><img alt='Global Coffee Analytics' src='https://public.tableau.com/static/images/Co/CoffeeOverview/Dashboard/1_rss.png' style='border: none' /></a>
+                    </noscript>
+                    <object class='tableauViz'  style='display:none;'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                        <param name='embed_code_version' value='3' /> 
+                        <param name='site_root' value='' />
+                        <param name='name' value='CoffeeOverview&#47;Dashboard' />
+                        <param name='tabs' value='no' />
+                        <param name='toolbar' value='yes' />
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='en-US' />
+                    </object>
+                </div>
+                <script type='text/javascript'>
+                    var divElement = document.getElementById('viz1710000000000');
+                    var vizElement = divElement.getElementsByTagName('object')[0];
+                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height='600px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height='600px';} else { vizElement.style.width='100%';vizElement.style.height='450px';}
+                    var scriptElement = document.createElement('script');
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                </script>
+            </div>
+        </section>
+
+        <section class="game-section">
+            <h2>Take a Break: Play retro Snake!</h2>
+            <p>Use your arrow keys on your keyboard to guide the snake and eat the red apples. Avoid hitting the walls or yourself!</p>
+            <div class="game-wrapper">
+                <div id="score-board">Score: 0 | High Score: 0</div>
+                <canvas id="gameCanvas" width="400" height="400"></canvas>
+                <br>
+                <button id="start-btn" onclick="startGame()">Start / Restart Game</button>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="resume-section" class="resume-container">
+            <header class="resume-header">
+                <h1>Your Name Here</h1>
+                <p>Aspiring Professional | Technology & Data Enthusiast</p>
+            </header>
+
+            <div class="resume-block">
+                <h3>Education</h3>
+                <p><strong>Brigham Young University</strong> — Provo, UT</p>
+                <p class="date-text">Bachelor of Science in Information Systems | Expected Graduation: April 2027</p>
+                <ul>
+                    <li>GPA: 3.85/4.00</li>
+                    <li>Relevant Coursework: Enterprise Application Development, Database Systems, Systems Analysis</li>
+                </ul>
+            </div>
+
+            <div class="resume-block">
+                <h3>Work Experience</h3>
+                <p><strong>Junior Web Developer</strong> — Tech Solutions Inc.</p>
+                <p class="date-text">May 2025 – Present</p>
+                <ul>
+                    <li>Collaborated in agile environments to design and launch internal HTML/CSS layouts, increasing team project management efficiency by 15%.</li>
+                    <li>Maintained source code integrity and deployed web applications seamlessly via GitHub Pages.</li>
+                </ul>
+
+                <p><strong>Technology Support Specialist</strong> — BYU OIT</p>
+                <p class="date-text">September 2024 – May 2025</p>
+                <ul>
+                    <li>Diagnosed software and networking anomalies for thousands of campus users, ensuring optimal system uptime.</li>
+                </ul>
+            </div>
+
+            <div class="resume-block">
+                <h3>Skills & Competencies</h3>
+                <ul>
+                    <li><strong>Languages:</strong> HTML5, CSS3, JavaScript, SQL</li>
+                    <li><strong>Tools & Frameworks:</strong> Git, GitHub, Bootstrap, Tableau Desktop</li>
+                    <li><strong>Soft Skills:</strong> Analytical Problem Solving, Technical Team Collaboration</li>
+                </ul>
+            </div>
+
+            <div class="resume-block">
+                <h3>Awards & Honors</h3>
+                <ul>
+                    <li>Academic Dean's List (Consecutive Semesters)</li>
+                    <li>First Place Winner — Local Hackathon UI/UX Design Track (2025)</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer-container">
+        <p>&copy; 2026 | Built from scratch with careful design consideration.</p>
+    </div>
+
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+        const scoreBoard = document.getElementById("score-board");
+
+        const gridSize = 20;
+        const tileCount = canvas.width / gridSize;
+
+        let snake = [{x: 10, y: 10}];
+        let food = {x: 5, y: 5};
+        let dx = 0;
+        let dy = 0;
+        let score = 0;
+        let highScore = 0;
+        let gameInterval = null;
+
+        // Capture direction controls
+        window.addEventListener("keydown", changeDirection);
+
+        function changeDirection(event) {
+            const keyPressed = event.keyCode;
+            const goingUp = dy === -1;
+            const goingDown = dy === 1;
+            const goingRight = dx === 1;
+            const goingLeft = dx === -1;
+
+            if (keyPressed === 37 && !goingRight) { dx = -1; dy = 0; }
+            if (keyPressed === 38 && !goingDown) { dx = 0; dy = -1; }
+            if (keyPressed === 39 && !goingLeft) { dx = 1; dy = 0; }
+            if (keyPressed === 40 && !goingUp) { dx = 0; dy = 1; }
+        }
+
+        function startGame() {
+            clearInterval(gameInterval);
+            snake = [{x: 10, y: 10}];
+            generateFood();
+            dx = 1; // start moving right
+            dy = 0;
+            score = 0;
+            updateScoreBoard();
+            gameInterval = setInterval(updateGame, 100);
+        }
+
+        function updateGame() {
+            if (hasGameEnded()) {
+                clearInterval(gameInterval);
+                alert("Game Over! Final Score: " + score);
+                return;
+            }
+
+            moveSnake();
+            if (snake[0].x === food.x && snake[0].y === food.y) {
+                score += 10;
+                if (score > highScore) highScore = score;
+                updateScoreBoard();
+                generateFood();
+            } else {
+                snake.pop(); // Remove tail if food wasn't eaten
+            }
+
+            drawCanvas();
+        }
+
+        function moveSnake() {
+            const head = {x: snake[0].x + dx, y: snake[0].y + dy};
+            snake.unshift(head);
+        }
+
+        function hasGameEnded() {
+            // Wall collisions
+            if (snake[0].x < 0 || snake[0].x >= tileCount || snake[0].y < 0 || snake[0].y >= tileCount) {
+                return true;
+            }
+            // Self collisions
+            for (let i = 1; i < snake.length; i++) {
+                if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true;
+            }
+            return false;
+        }
+
+        function generateFood() {
+            food.x = Math.floor(Math.random() * tileCount);
+            food.y = Math.floor(Math.random() * tileCount);
+            // Ensure food doesn't spawn on top of the snake
+            snake.forEach(part => {
+                if (part.x === food.x && part.y === food.y) generateFood();
+            });
+        }
+
+        function drawCanvas() {
+            // Draw background
+            ctx.fillStyle = "#1e293b";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw food
+            ctx.fillStyle = "#ef4444";
+            ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
+
+            // Draw snake
+            ctx.fillStyle = "#10b981";
+            snake.forEach((part, index) => {
+                // Head is slightly darker green
+                if (index === 0) ctx.fillStyle = "#059669";
+                else ctx.fillStyle = "#10b981";
+                ctx.fillRect(part.x * gridSize, part.y * gridSize, gridSize - 2, gridSize - 2);
+            });
+        }
+
+        function updateScoreBoard() {
+            scoreBoard.textContent = `Score: ${score} | High Score: ${highScore}`;
+        }
+
+        // Initially draw background canvas
+        drawCanvas();
+    </script>
+</body>
+</html>
