@@ -1,0 +1,130 @@
+/* ==========================================================================
+   Global Page Styles
+   ========================================================================== */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: rgb(132, 93, 118);
+    margin: 20px;
+}
+
+/* ==========================================================================
+   Typography and List Elements
+   ========================================================================== */
+li {
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   Navigation and Links (With States)
+   ========================================================================== */
+
+/* 1. Default link style */
+a {
+    color: rgb(165, 116, 147); 
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+/* 2. Visited style */
+a:visited {
+    color: rgb(110, 75, 97); 
+}
+
+/* 3. Hover style */
+a:hover {
+    color: rgb(214, 122, 177); /* Brighter berry-pink shade */
+    font-size: 16px; 
+}
+
+/* ==========================================================================
+   Custom Selectors & Text Alignment
+   ========================================================================== */
+h1 {
+    text-align: left; /* Aligns with the floated image layout */
+    margin-top: 10px;
+}
+
+h2 {
+    background-color: rgba(132, 93, 118, 0.1); /* 10% mauve tint */
+    padding: 5px 10px;
+    border-left: 5px solid rgb(132, 93, 118); /* Solid vertical accent bar */
+}
+
+.job-title {
+    color: rgb(214, 122, 177); 
+    font-size: 16px; 
+}
+
+/* ==========================================================================
+   The Box Model & Basic Layout
+   ========================================================================== */
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* ==========================================================================
+   Advanced Positioning (Fixed, Float, and Z-Index)
+   ========================================================================== */
+
+/* 1. FIXED POSITIONING & LAYER CONTROL (Z-INDEX) */
+.fixed-nav {
+    position: fixed;     /* Anchors navigation to the viewport window */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(132, 93, 118); /* Solid mauve base background */
+    z-index: 1000;        /* Higher stacking order guarantees content scrolls beneath it */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+}
+
+.nav-logo {
+    color: white;
+    font-weight: bold;
+}
+
+.fixed-nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.fixed-nav a:hover {
+    color: rgb(214, 122, 177);
+    font-size: 15px; /* Size locked to keep header container stable */
+}
+
+/* 2. OFFSET FOR FIXED HEADER CONSEQUENCES */
+/* Systems thinking adjustment: Prevents header container from masking layout content */
+.main-content {
+    margin-top: 70px; 
+}
+
+/* 3. FLOAT POSITIONING */
+/* Floats photo box to the left boundary; following elements wrap into remaining space */
+.bio-section img {
+    float: left; 
+    margin: 0 20px 10px 0; /* Clear space buffers on right and bottom edges */
+    border: 4px solid rgba(132, 93, 118, 0.3); 
+    padding: 5px; 
+}
+
+/* Clears float properties to safely reset downstream page document flow */
+.bio-section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.linkedin-link {
+    margin-top: 5px;
+}
